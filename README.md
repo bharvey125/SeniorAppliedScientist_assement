@@ -23,11 +23,14 @@ kedro run
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)
 
 ## <u>Findings:</u>
-- It was found that the trend in performance is getting worse across the three months examined.  
-- Specific routes are performing worse than others.
-- Specific Neighborhoods perform drastically worse than others.
-- 17:00 is the worst performing time during the week and 15:00/16:00 is the worst performing during the weekend.
-- Mid-week performance worse then weekends.
+-	It was found that the trend in performance is getting worse across the three months examined.  
+-	Specific routes are performing worse than others.
+-	Specific Neighborhoods perform drastically worse than others After cleaning some specific routes, the best and worst are..
+o	-Best: Westdale - Grace Hospital
+o	-Worst: South St. Anne's Express
+-	17:00 is the worst performing time during the week and 15:00/16:00 is the worst performing during the weekend.
+-	Mid-week performance worse than weekends.
+
   ## <u>Trend in Avg Times Across Days Of Week</u>
   ![Count Of Extreme Events By Day](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/Count%20of%20extreme%20events%20by%20day.png)
 - An extreme event is defined as deviations that are 1.5*middle 50% of the data away from the bottom 25%

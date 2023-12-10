@@ -14,7 +14,7 @@ Description: This repo contains the repository and the requested write-up for th
 ## <u>Trend in avg delay times by time of day - Weekday</u>
   ![Avg Deviation By Time Of Day - weekday](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekday.png)
 - Not surprisingly the worst time of the day for avg deviation was found to be 17:00 on a weekday
-- There is also an odd spike in mean performance around 2am. I would hypothesis this is when majority of routes shutdown for the night or shift change over. The same effect is not observed on weekends. In Fact there is a spike decrease in performance at 2am on the weekend. 
+- There is also an odd spike in mean performance around 2 am. I would hypothesize this is when the majority of routes shut down for the night or shifts change over. The same effect is not observed on weekends. In Fact there is a spike decrease in performance at 2 am on the weekend. 
 
   ## <u>Trend in avg delay times by time of day - Weekend</u>
 ![Avg Deviation By Time Of Day - weekend](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekend.png)

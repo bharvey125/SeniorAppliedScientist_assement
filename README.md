@@ -13,14 +13,22 @@ pip install -r src/requirements.txt
 
 ## How to run your Kedro pipeline
 
-You can run your Kedro project with:
+Once installed navigate to the root of the project:
+```
+cd /path/to/root/SeniorAppliedScientist_assement/busarrival-pred
+```
+From the root directory you can run your Kedro project with:
 
 ```
 kedro run
 ```
 
 # Expected Output:
-After a successful run the pipeline will store the version models in the model folder as well as the predictions for the test set in the model output folder.
+After a successful run, the pipeline will report  and store several objects:<br>
+- the versioned models will be stored in the model folder
+- the predictions and the actuals for the test set will be stored in the model output folder.
+- The performance for each model will be reported to stdout
+![stdout](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/kedro%20output.png)
 
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)
@@ -28,7 +36,7 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 ## <u>Findings:</u>
 -	It was found that the trend in performance is getting worse across the three months examined.  
 -	Specific routes are performing worse than others.
--	Specific Neighborhoods perform drastically worse than others After cleaning some specific routes, the best and worst are..
+-	Specific Neighborhoods perform drastically worse than others after cleaning some specific routes, the best and worst are..
     - Best: Westdale - Grace Hospital
     - Worst: South St. Anne's Express
 -	17:00 is the worst performing time during the week and 15:00/16:00 is the worst performing during the weekend.
@@ -41,23 +49,23 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
   ## <u>Trend in avg delay times by time of day - Weekday</u>
   ![Avg Deviation By Time Of Day - weekday](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekday.png)
 -	The worst time of the day for avg deviation was found to be 17:00 on a weekday
--	There is also an odd spike in mean performance around 2am. I would hypothesis this is when majority of routes shutdown for the night or shift change over. The same effect is not observed on weekends. In Fact there is a spike decrease in performance at 2am on the weekend. 
+-	There is also an odd spike in mean performance around 2am. I would hypothesize this is when the majority of routes shut down for the night or shift change over. The same effect is not observed on weekends. In Fact, there is a spike decrease in performance at 2am on the weekend. 
 
 
 
   ## <u>Trend in avg delay times by time of day - Weekend</u>
 ![Avg Deviation By Time Of Day - weekend](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekend.png)
--	These patterns hold true for individual neighbourhoods as well. 
+-	These patterns hold true for individual neighborhoods as well. 
 ![Avg Deviation By Time Of Day - Neighborhoood](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20and%20neighbourhood.png)
 
-## weather effect
+## Weather effect
 - Weather only had a minor effect on mean deviation, but this requires further investigation. 
 
-## traffic effect
+## Traffic effect
 - Although we didn’t have a direct measure of traffic for the analysis. Time of day acts as a proxy. A good source of traffic data should be sourced in future iterations of this analysis. 
 ## area effect
 - Neighbourhood had a fairly strong impact on the mean deviation
-- Best performing Neighborhood is Westdale - Grace Hospita.
+- Best performing Neighborhood is Westdale - Grace Hospital.
 - The 10 worst neighbourhoods based on mean deviation are:  
         - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
 
@@ -86,7 +94,9 @@ To start I would want to establish a benchmark to compare against, for this, I w
 
   To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric[^1]. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
 
-# Question 3:
+# Question 3:<br>
+
+### [Link to Repo](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred)<br>
 
 *Assumption:* Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.<br>
 *Assumption:* Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express. <br>

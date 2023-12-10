@@ -44,8 +44,7 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 
   ## <u>Trend in avg delay times by time of day - Weekend</u>
 ![Avg Deviation By Time Of Day - weekend](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekend.png)
-- The worst time for deviation on the weekend is 15:00. There is also a reversal of the 2am spike. This would need further investigation to understand the cause.q
-- These patterns hold for individual neighborhoods as well. The worst-performing neighborhoods all experience peak avg deviation around 17:00.
+-	These patterns hold true for individual neighbourhoods as well. 
 ![Avg Deviation By Time Of Day - Neighborhoood](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20and%20neighbourhood.png)
 
 ## weather effect

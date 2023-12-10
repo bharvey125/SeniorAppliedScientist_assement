@@ -4,8 +4,12 @@ Description: This repo contains the repository and the requested write-up for th
 
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 
+## <u>Findings:</u>
 - It was found that the trend in performance is getting worse across the three months examined.  
-- Specific routes are performing worse then others.
+- Specific routes are performing worse than others.
+- Specific Neighborhoods perform drastically worse than others.
+- 17:00 is the worst performing time during the week and 15:00/16:00 is the worst performing during the weekend.
+- Mid-week performance worse then weekends.
   ## <u>Trend in Avg Times Across Days Of Week</u>
   ![Count Of Extreme Events By Day](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/Count%20of%20extreme%20events%20by%20day.png)
 - An extreme event is defined as deviations that are 1.5*middle 50% of the data away from the bottom 25%
@@ -33,3 +37,4 @@ Description: This repo contains the repository and the requested write-up for th
 - The 10 worst neighbourhoods based on mean deviation are:
 - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
 
+# Question 2

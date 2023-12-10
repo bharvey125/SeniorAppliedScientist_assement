@@ -80,7 +80,7 @@ There are a couple of approaches we could take.
 
 To start I would want to establish a benchmark to compare against, for this, I would go with a simple autoregressive-exogenous variable model. After appropriate feature engineering is completed, to ensure there is information leakage into the model the data will be split into train and test sets. From there AR-X model will be fit for each bus route. To establish a baseline I would calculate standard performance metrics on the test set. After this, I would move to more complex models, feature engineering, and hyperparameter tuning. For example: a cumulative count of late stops on the day, identifying networks in the bus data and using the deviation from the bus ahead in the network as a proxy for traffic..etc. By Iterating in this systematic way we can be sure we deliver the best-performing model.  
 
-  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric[^1]. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
+  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric<sup>[1]()</sup>. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
 
 
 # Question 3:

@@ -55,7 +55,7 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 ## area effect
 -	Neighbourhood had a fairly strong impact on the mean deviation
 -	Best performing Neighborhood is Westdale - Grace Hospita.
--	The 10 worst neighbourhoods based on mean deviation are:
+-	The 10 worst neighbourhoods based on mean deviation are:  
         - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
 
 

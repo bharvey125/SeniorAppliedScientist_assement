@@ -29,6 +29,9 @@ After a successful run, the pipeline will report  and store several objects:<br>
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)
 
+
+### [Link to Repo](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred)
+
 ## <u>Findings:</u>
 -	It was found that the trend in performance is getting worse across the three months examined.  
 -	Specific routes are performing worse than others.

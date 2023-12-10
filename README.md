@@ -5,8 +5,6 @@ Description: This repo contains the repository and the requested write-up for th
 
 ## How to install dependencies
 
-Declare any dependencies in `src/requirements.txt` for `pip` installation and `src/environment.yml` for `conda` installation.
-
 To install them, run:
 
 ```

@@ -63,8 +63,8 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 
 # Question 2: Provide an overview of how you would approach the problem of modeling late arrivals in real-time.
 
-** Assumption: we’ve estimated a model with adequate performance based on the mentioned accuracy measures.
-** Assumption: we include 2 lags of the deviation in the model
+<u>Assumption:</u> we’ve estimated a model with adequate performance based on the mentioned accuracy measures.  
+<u>Assumption:</u> we include 2 lags of the deviation in the model
 
 ## Non-Technical Audience:
 

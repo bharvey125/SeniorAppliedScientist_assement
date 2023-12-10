@@ -2,6 +2,25 @@
 Author: Brett Harvey  
 Description: This repo contains the repository and the requested write-up for the skill assessment about the above competition. The write up for supplied questions is given below. There will be links supplied to supporting material.
 
+
+## How to install dependencies
+
+Declare any dependencies in `src/requirements.txt` for `pip` installation and `src/environment.yml` for `conda` installation.
+
+To install them, run:
+
+```
+pip install -r src/requirements.txt
+```
+
+## How to run your Kedro pipeline
+
+You can run your Kedro project with:
+
+```
+kedro run
+```
+
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)
 

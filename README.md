@@ -11,4 +11,8 @@ Description: This repo contains the repository and the requested write-up for th
 - An extreme event is defined as deviations that are 1.5*middle 50% of the data away from the bottom 25%
 - It was found that extreme events are more likely to occur from Tuesday to Friday. It was also found that Monday was only slightly worse in terms of extreme event occurrence than the weekend.
 
+## <u>Trend in avg delay times by time of day - Weekday</u>
+  ![Avg Deviation By Time Of Day - weekday](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekday.png)
 
+  ## <u>Trend in avg delay times by time of day - Weekend</u>
+    ![Avg Deviation By Time Of Day - weekend](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20-%20weekday.png)

@@ -64,6 +64,7 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 # Question 2: Provide an overview of how you would approach the problem of modeling late arrivals in real-time.
 
 <u>Assumption:</u> we’ve estimated a model with adequate performance based on the mentioned accuracy measures.  
+
 <u>Assumption:</u> we include 2 lags of the deviation in the model
 
 ## Non-Technical Audience:
@@ -71,7 +72,8 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 Through rigorous analysis and modeling, we’ve identified a model that has adequate performance to predict arrival time deviations in real-time. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.
 
 ## Technical Audience:
-** Assumption: I’m assuming you want this question to focus on the modeling and not the technical aspects of real-time deployment. Due to the maximum word requirement on the question I won’t address the deployment options here, but I have experience in designing real-time systems using technologies like Kafka (confluent is the cloud-hosted version), HiveMQ (MQTT brokers) and High-performance Time series databases (Influxdb, TimescaleDB). I’ve included a brief High-level description of a request-response type of deployment in the appendix. 
+<u>Assumption:</u>  I’m assuming you want this question to focus on the modeling and not the technical aspects of real-time deployment. Due to the maximum word requirement on the question I won’t address the deployment options here, but I have experience in designing real-time systems using technologies like Kafka (confluent is the cloud-hosted version), HiveMQ (MQTT brokers) and High-performance Time series databases (Influxdb, TimescaleDB). I’ve included a brief High-level description of a request-response type of deployment in the appendix. 
+
 
 There are a couple of approaches we could take. 
 -	Estimating a single model and controlling for route information. This would cause issues with dimensions in the data set. 
@@ -84,10 +86,14 @@ To start I would want to establish a benchmark to compare against, for this, I w
 
 # Question 3:
 
-** Assumption: Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.  
-** Assumption: Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express.  
-** Assumption: The model is going to be put into production.   
-** Assumption: Focus on the Machine process and not the technology required for edge data transmission and model deployment.  
+<u>Assumption:</u> Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.  
+
+<u>Assumption:</u> Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express. 
+
+<u>Assumption:</u> The model is going to be put into production. 
+
+<u>Assumption:</u> Focus on the Machine process and not the technology required for edge data transmission and model deployment.  
+
  
 
 After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately[^2].   

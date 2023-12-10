@@ -29,9 +29,6 @@ After a successful run, the pipeline will report  and store several objects:<br>
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)
 
-
-### [Link to Repo](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred)
-
 ## <u>Findings:</u>
 -	It was found that the trend in performance is getting worse across the three months examined.  
 -	Specific routes are performing worse than others.
@@ -94,6 +91,8 @@ To start I would want to establish a benchmark to compare against, for this, I w
   To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric[^1]. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
 
 # Question 3:
+
+### [Link to Repo](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred)
 
 *Assumption:* Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.<br>
 *Assumption:* Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express. <br>

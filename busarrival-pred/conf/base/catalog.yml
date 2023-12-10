@@ -2,3 +2,43 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+raw_bus_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/semi_raw_bus_data.csv
+
+
+route1_dataset:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/route1_data.csv
+
+route2_dataset:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/route2_data.csv
+
+L1_route1_dataset:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/L1_route1_data.csv
+
+L1_route2_dataset:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/L1_route2_data.csv
+
+
+regressor1:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/regressor1.pickle
+  versioned: true
+
+regressor2:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/regressor2.pickle
+  versioned: true
+
+model_pred1:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/M1_output.csv
+
+model_pred2:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/M2_output.csv

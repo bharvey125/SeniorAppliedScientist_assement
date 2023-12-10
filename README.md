@@ -13,7 +13,7 @@ pip install -r src/requirements.txt
 
 ## How to run your Kedro pipeline
 
-You can run your Kedro project with:
+From the root directory you can run your Kedro project with:
 
 ```
 kedro run

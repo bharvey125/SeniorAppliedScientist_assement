@@ -58,6 +58,8 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 - The 10 worst neighbourhoods based on mean deviation are:  
         - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
 
+  ![Best and Worst Neighborhood by Avg Deviation](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/best%20and%20worst%20neighborhood%20by%20mean%20deviation.png)
+
 
 # Question 2
 

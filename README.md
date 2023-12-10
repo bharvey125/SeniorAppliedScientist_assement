@@ -1,4 +1,4 @@
-# Competition 42039 - Assessment Invitation - Senior Applied Scientist, Data Science Program
+# Competition 42039 - Assessment - Senior Applied Scientist, Data Science Program
 Author: Brett Harvey  
 Description: This repo contains the repository and the requested write-up for the skill assessment for the above competition. The write up for supplied questions is given below. There will be links supplied to supporting material.
 

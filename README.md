@@ -24,6 +24,7 @@ After a successful run, the pipeline will report  and store several objects:<br>
 - the versioned models will be stored in the model folder
 - the predictions and the actuals for the test set will be stored in the model output folder.
 - The performance for each model will be reported to stdout
+![stdout](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/kedro%20output.png)
 
 # Question 1 - Identify problem parts of the Winnipeg bus system. Consider location, time, and other factors as relevant. Explain your results clearly and concisely 
 Detailed analysis can be found in the notebooks [here](https://github.com/bharvey125/SeniorAppliedScientist_assement/tree/main/busarrival-pred/notebooks)

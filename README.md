@@ -101,6 +101,17 @@ After a model with the best performance has been identified, we would need to pr
 If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data[^3]. 
 
 
+# Appendix:
+Brief deployment description:  
+
+I believe the best option here would be a request-response type of model deployment.  Each bus would be streaming live data to a central (assuming cloud hosted) database. Since it’s cloud base we could leverage a cloud service provider to host live end points for the models. When a user wants an estimated arrival time, the app would make a request to the end point passing through the required data from the DB, the live prediction would then be add or subtracted from the scheduled arrival time to provide the end user with the new predicted arrival time. Technical specifications are outside the scope of this document.
+	
+
+
+
+
+
+
 [^1]: These metrics will be calculated in a one-step-ahead fashion.  
 [^2]: Unit testing is outside of the scope of this assessment but should be done rigorously.  
 [^3]: The project toy model is implemented using the Kedro framework. A production-ready Python framework that makes bridging the gap between prod and POC easier, because of this there are extra boilerplate files. The majority of the work is being done in the pipeline files in src folder

@@ -22,3 +22,14 @@ Description: This repo contains the repository and the requested write-up for th
 - The worst time for deviation on the weekend is 15:00. There is also a reversal of the 2am spike. This would need further investigation to understand the cause.q
 - These patterns hold for individual neighborhoods as well. The worst-performing neighborhoods all experience peak avg deviation around 17:00.
 ![Avg Deviation By Time Of Day - Neighborhoood](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/mean%20deviation%20by%20Time%20of%20day%20and%20neighbourhood.png)
+
+## weather effect
+- Weather only had a minor effect on mean deviation, but this requires further investigation. 
+
+## traffic effect
+- Although we didn’t have a direct measure of traffic for the analysis. Time of day acts as a proxy. A good source of traffic data should be sourced in future iterations of this analysis. 
+## area effect
+- The Neighbourhood had a fairly strong impact on the mean deviation
+- The 10 worst neighbourhoods based on mean deviation are:
+- Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
+

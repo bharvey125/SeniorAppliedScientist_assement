@@ -32,7 +32,7 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 ## <u>Findings:</u>
 -	It was found that the trend in performance is getting worse across the three months examined.  
 -	Specific routes are performing worse than others.
--	Specific Neighborhoods perform drastically worse than others After cleaning some specific routes, the best and worst are..
+-	Specific Neighborhoods perform drastically worse than others after cleaning some specific routes, the best and worst are..
     - Best: Westdale - Grace Hospital
     - Worst: South St. Anne's Express
 -	17:00 is the worst performing time during the week and 15:00/16:00 is the worst performing during the weekend.

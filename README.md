@@ -35,7 +35,27 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 - Although we didn’t have a direct measure of traffic for the analysis. Time of day acts as a proxy. A good source of traffic data should be sourced in future iterations of this analysis. 
 ## area effect
 - The Neighbourhood had a fairly strong impact on the mean deviation
-- The 10 worst neighbourhoods based on mean deviation are:
+- The 10 worst neighborhoods based on mean deviation are:
 - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
 
 # Question 2
+
+** Assumption: we’ve estimated a model with adequate performance based on the mentioned accuracy measures.
+** Assumption: we include 2 lags of the deviation in the model
+
+## Non-Technical Audience:
+
+Through rigorous analysis and modeling, we’ve identified a model that has adequate performance. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.
+
+## Technical Audience:
+
+There are a couple of approaches we could take. 
+-	Estimating a single model and controlling for route information. This would cause issues with dimensions in the data set. 
+-	Estimating a model by area of the city or by identifying route clusters and estimating a model per cluster.
+-	Estimating a model per route. This will be the easiest from a modeling perspective, but would be computationally expensive and hard to implement an effective MLops strategy in production. I’m going to take those last two issues away for this assessment and proceed with the model-per-route approach.
+To start I would want to establish a benchmark to compare against, for this, I would go with a simple autoregressive-exogenous variable model. After appropriate feature engineering is completed to ensure there is no leakage, the data will be split into train and test data and an AR-X model will be fit for each bus route. Next, I would move to more complex models and feature engineering. For example: a cumulative count of late stops…etc. Once the models are fit I would start exploring performance and model averaging procedures.  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set,( note: these will be calculated in a one-step ahead fashion) and then average across the bus routes to obtain a single metric. This way we could also identify underperforming routes  and models that are underperforming in specific areas
+Question 3:
+Assumption: Linear Regression was the best-performing model. Ie: AR(2) model with exogenous variables. These variables are a one-hot encoded time of day and area of the city.
+Assumption: Selected the 2nd best performing bus route and 2nd worst performing bus route based on average deviation across the period.
+After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately.
+If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data.

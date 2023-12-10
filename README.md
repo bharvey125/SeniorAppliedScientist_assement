@@ -7,6 +7,6 @@ Description: This repo contains the repository and the requested write-up for th
 - It was found that the trend in performance is getting worse across the three months examined.  
 - Specific routes are performing worse then others.
   ## <u>Trend in Avg Times Across Days Of Week</u>
-  ![Count Of Extreme Events By Day](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/10%20best%20mean%20deviation%20by%20neighbourhood.png)
+  ![Count Of Extreme Events By Day](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/Count%20of%20extreme%20events%20by%20day.png)
 
 

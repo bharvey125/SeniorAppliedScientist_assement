@@ -86,14 +86,14 @@ To start I would want to establish a benchmark to compare against, for this, I w
 
 # Question 3:
 
-*Assumption:* Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.\
-*Assumption:* Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express. \
-*Assumption:* The model is going to be put into production. \
-*Assumption:* Focus on the Machine process and not the technology required for edge data transmission and model deployment.  
+*Assumption:* Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.<br>
+*Assumption:* Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express. <br>
+*Assumption:* The model is going to be put into production. <br>
+*Assumption:* Focus on the Machine process and not the technology required for edge data transmission and model deployment. <br> 
 
-After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately.\
+After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately.<br>
 
-If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data.\
+If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data.<br>
 
 
 # Appendix:

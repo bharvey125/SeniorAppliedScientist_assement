@@ -80,7 +80,7 @@ There are a couple of approaches we could take.
 
 To start I would want to establish a benchmark to compare against, for this, I would go with a simple autoregressive-exogenous variable model. After appropriate feature engineering is completed, to ensure there is information leakage into the model the data will be split into train and test sets. From there AR-X model will be fit for each bus route. To establish a baseline I would calculate standard performance metrics on the test set. After this, I would move to more complex models, feature engineering, and hyperparameter tuning. For example: a cumulative count of late stops on the day, identifying networks in the bus data and using the deviation from the bus ahead in the network as a proxy for traffic..etc. By Iterating in this systematic way we can be sure we deliver the best-performing model.  
 
-  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric<sup>[1]</sup>. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
+  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set, then average across the bus routes to obtain a single metric[1]. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
 
 
 # Question 3:
@@ -91,9 +91,9 @@ To start I would want to establish a benchmark to compare against, for this, I w
  
 
 After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately[^2]. 
-If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data. [^3]
+If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data[^3]. 
 
 
-[^1]: These metrics will be calculated in a one-step ahead fashion.
-[^2]: Unit testing is outside of the scope of this assessment, but should be done in a rigorous manner.
-[^3]: The project toy model is implemented using the kedro framework. A production ready python framework that makes bridging the gap between prod and POC easier, because of this there are extra boiler plate files. Majority of the work is being done in the pipeline files in src folder
+[^1]: These metrics will be calculated in a one-step-ahead fashion.
+[^2]: Unit testing is outside of the scope of this assessment but should be done rigorously.
+[^3]: The project toy model is implemented using the Kedro framework. A production-ready Python framework that makes bridging the gap between prod and POC easier, because of this there are extra boilerplate files. The majority of the work is being done in the pipeline files in src folder

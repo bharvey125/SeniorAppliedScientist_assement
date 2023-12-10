@@ -61,26 +61,39 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
   ![Best and Worst Neighborhood by Avg Deviation](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/best%20and%20worst%20neighborhood%20by%20mean%20deviation.png)
 
 
-# Question 2
+# Question 2: Provide an overview of how you would approach the problem of modeling late arrivals in real-time.
 
 ** Assumption: we’ve estimated a model with adequate performance based on the mentioned accuracy measures.
 ** Assumption: we include 2 lags of the deviation in the model
 
 ## Non-Technical Audience:
 
-Through rigorous analysis and modeling, we’ve identified a model that has adequate performance. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.
+Through rigorous analysis and modeling, we’ve identified a model that has adequate performance to predict arrival time deviations in real-time. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.
 
 ## Technical Audience:
+** Assumption: I’m assuming you want this question to focus on the modeling and not the technical aspects of real-time deployment. Due to the maximum word requirement on the question I won’t address the deployment options here, but I have experience in designing real-time systems using technologies like Kafka (confluent is the cloud-hosted version), HiveMQ (MQTT brokers) and High-performance Time series databases (Influxdb, TimescaleDB). I’ve included a brief High-level description of a request-response type of deployment in the appendix. 
 
 There are a couple of approaches we could take. 
 -	Estimating a single model and controlling for route information. This would cause issues with dimensions in the data set. 
 -	Estimating a model by area of the city or by identifying route clusters and estimating a model per cluster.
--	Estimating a model per route. This will be the easiest from a modeling perspective, but would be computationally expensive and hard to implement an effective MLops strategy in production. I’m going to take those last two issues away for this assessment and proceed with the model-per-route approach.
-To start I would want to establish a benchmark to compare against, for this, I would go with a simple autoregressive-exogenous variable model. After appropriate feature engineering is completed to ensure there is no leakage, the data will be split into train and test data and an AR-X model will be fit for each bus route. Next, I would move to more complex models and feature engineering. For example: a cumulative count of late stops…etc. Once the models are fit I would start exploring performance and model averaging procedures.  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set,( note: these will be calculated in a one-step ahead fashion) and then average across the bus routes to obtain a single metric. This way we could also identify underperforming routes  and models that are underperforming in specific areas.  
+-	Estimating a model per route. This will be the easiest from a modeling perspective, but would be computationally expensive and hard to implement an effective MLops strategy in production. I’m going to assume those last two issues away for this assessment and proceed with the model-per-route approach.
+
+To start I would want to establish a benchmark to compare against, for this, I would go with a simple autoregressive-exogenous variable model. After appropriate feature engineering is completed, to ensure there is information leakage into the model the data will be split into train and test sets. From there AR-X model will be fit for each bus route. To establish a baseline I would calculate standard performance metrics on the test set. After this, I would move to more complex models, feature engineering, and hyperparameter tuning. For example: a cumulative count of late stops on the day, identifying networks in the bus data and using the deviation from the bus ahead in the network as a proxy for traffic..etc. By Iterating in this systematic way we can be sure we deliver the best-performing model.  
+
+  To test and compare models, I would calculate the MAPE, RMSE, and R^2 for each route on the test set[^1], then average across the bus routes to obtain a single metric. This  approach would allow us to identify underperforming routes and models, we could then focus on the edge cases and tune the models and features to increase the performance of the system overall.
+
 
 # Question 3:
-** Assumption: Linear Regression was the best-performing model. Ie: AR(2) model with exogenous variables. These variables are a one-hot encoded time of day and area of the city.  
-** Assumption: Selected the 2nd best performing bus route and 2nd worst performing bus route based on average deviation across the period.  
+** Assumption: Linear Regression was the best-performing model. This will not be true in practice, but for simplicity we will move ahead with it. Ie: AR(2) model with exogenous variables. These variables are one-hot encoded time of day and area of city.
+** Assumption: Two random routes were selected to be included. Broadway-Williams and South St. Anne's Express.
+** Assumption: The model is going to be put into production. 
+** Assumption: Focus on the Machine process and not the technology required for edge data transmission and model deployment.
+ 
 
-After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately.
-If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data.
+After a model with the best performance has been identified, we would need to productionalize the code. To the point, most of the analysis has been done in a notebook. I recommend using Kedro for this portion of the project. It is an open-source framework for producing production-ready code.  After the notebook code has been refactored using the Kedro framework, unit testing should be done to ensure the system is behaving appropriately.[^2]  
+If the model is going to be deployed we would need to identify an adequate MLops strategy for monitoring and maintaining these roughly 85 models. Models will go stale and will need to be retrained. There are software packages out there for this, but it depends on how these individual models will be deployed (edge, cloud, on-prem).   Once it was decided on we would need to build systems to monitor for things like data drift, concept drift, and prediction drift. As well as monitor the performance and quality of incoming data.[^3]
+
+
+[^1]These metrics will be calculated in a one-step ahead fashion.
+[^2]Unit testing is outside of the scope of this assessment, but should be done in a rigorous manner.
+[^3]The project toy model is implemented using the kedro framework. A production ready python framework that makes bridging the gap between prod and POC easier, because of this there are extra boiler plate files. Majority of the work is being done in the pipeline files in src folder

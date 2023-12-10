@@ -16,6 +16,7 @@ logs/**
 # except their sub-folders
 !data/**/
 !logs/**/
+!semi_raw_bus_data.csv
 
 # also keep all .gitkeep files
 !.gitkeep

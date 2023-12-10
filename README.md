@@ -8,5 +8,7 @@ Description: This repo contains the repository and the requested write-up for th
 - Specific routes are performing worse then others.
   ## <u>Trend in Avg Times Across Days Of Week</u>
   ![Count Of Extreme Events By Day](https://github.com/bharvey125/SeniorAppliedScientist_assement/blob/main/Graphs/Count%20of%20extreme%20events%20by%20day.png)
+- An extreme event is defined as deviations that are 1.5*middle 50% of the data away from the bottom 25%
+- It was found that extreme events are more likely to occur from Tuesday to Friday. It was also found that Monday was only slightly worse in terms of extreme event occurrence than the weekend.
 
 

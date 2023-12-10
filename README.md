@@ -53,9 +53,11 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 ## traffic effect
 - Although we didn’t have a direct measure of traffic for the analysis. Time of day acts as a proxy. A good source of traffic data should be sourced in future iterations of this analysis. 
 ## area effect
-- The Neighbourhood had a fairly strong impact on the mean deviation
-- The 10 worst neighborhoods based on mean deviation are:
-- Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
+-	Neighbourhood had a fairly strong impact on the mean deviation
+-	Best performing Neighborhood is Westdale - Grace Hospita.
+-	The 10 worst neighbourhoods based on mean deviation are:
+        - Island Lakes, Victoria Cresent, Ridgewood South, North St. Boniface, East Elmwood, Grassie,   Archwood, Talbot-Grey, Weston, Vista, Normad Park.
+
 
 # Question 2
 

@@ -63,16 +63,15 @@ Detailed analysis can be found in the notebooks [here](https://github.com/bharve
 
 # Question 2: Provide an overview of how you would approach the problem of modeling late arrivals in real-time.
 
-*Assumption:* we’ve estimated a model with adequate performance based on the mentioned accuracy measures.  
-
-*Assumption:* we include 2 lags of the deviation in the model
+*Assumption:* we’ve estimated a model with adequate performance based on the mentioned accuracy measures.<br>
+*Assumption:* we include 2 lags of the deviation in the model.<br>
 
 ## Non-Technical Audience:
 
-Through rigorous analysis and modeling, we’ve identified a model that has adequate performance to predict arrival time deviations in real-time. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.
+Through rigorous analysis and modeling, we’ve identified a model that has adequate performance to predict arrival time deviations in real-time. We approach the problem by estimating a model for each bus route based on historic performance. For each route, the model takes as an input the previous 2 Deviations on the day and some other data like weather, traffic, and time of day to produce an estimate of the deviation for the next  stop. Since we know the scheduled arrival time we can combine the forecasted deviation with the scheduled time to provide the rider with an estimated arrival time.  This approach will allow us to estimate arrival times for each route one step ahead. Providing the rider with a better understanding of when their bus will arrive.<br>
 
 ## Technical Audience:
-*Assumption:*  I’m assuming you want this question to focus on the modeling and not the technical aspects of real-time deployment. Due to the maximum word requirement on the question I won’t address the deployment options here, but I have experience in designing real-time systems using technologies like Kafka (confluent is the cloud-hosted version), HiveMQ (MQTT brokers) and High-performance Time series databases (Influxdb, TimescaleDB). I’ve included a brief High-level description of a request-response type of deployment in the appendix. 
+*Assumption:*  I’m assuming you want this question to focus on the modeling and not the technical aspects of real-time deployment. Due to the maximum word requirement on the question I won’t address the deployment options here, but I have experience in designing real-time systems using technologies like Kafka (confluent is the cloud-hosted version), HiveMQ (MQTT brokers) and High-performance Time series databases (Influxdb, TimescaleDB). I’ve included a brief High-level description of a request-response type of deployment in the appendix.<br> 
 
 
 There are a couple of approaches we could take. 

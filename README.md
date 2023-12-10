@@ -11,7 +11,7 @@ To install them, run:
 pip install -r src/requirements.txt
 ```
 
-## How to run your Kedro pipeline
+## How to run the project
 
 Once installed navigate to the root of the project:
 ```

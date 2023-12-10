@@ -15,7 +15,7 @@ pip install -r src/requirements.txt
 
 Once installed navigate to the root of the project:
 ```
-cd ../SeniorAppliedScientist_assement
+cd /path/to/root/SeniorAppliedScientist_assement
 ```
 From the root directory you can run your Kedro project with:
 
